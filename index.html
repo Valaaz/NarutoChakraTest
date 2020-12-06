@@ -8,7 +8,7 @@
     <title>Test Naruto : quel est la nature de ton chakra ?</title>
     <script language="Javascript" src="js/questions.js"></script>
 </head>
-<body onload="begin()">
+<body>
     <header>
         <h1>Test Naruto : quel est la nature de ton chakra ?</h1>
     </header>
@@ -19,17 +19,17 @@
             <div class="question" id="question">Question</div>
 
             <div class="choice" id="list">
-                <div class="response" id="response1">Réponse 1</div>
-                <div class="response" id="response2">Réponse 2</div>
-                <div class="response" id="response3">Réponse 3</div>
-                <div class="response" id="response4">Réponse 4</div>
-                <div class="response" id="response5">Réponse 5</div>     
+                <div class="response" id="res1">Réponse 1</div>
+                <div class="response" id="res2">Réponse 2</div>
+                <div class="response" id="res3">Réponse 3</div>
+                <div class="response" id="res4">Réponse 4</div>
+                <div class="response" id="res5">Réponse 5</div>     
             </div>
 
             <div class="bottom" style="width: 736px; display: inline-block;">
-                    <input type="button" value="Commencer" id="btn_start" style="float: left;"/>
+                    <input type="button" value="Commencer" id="btn_start" style="float: left;" onclick="begin()"/>
                     <div style="float: right; padding-left: 10px; padding-right: 10px;">Questions restantes :&nbsp;
-                        <div id="remaining" style="float: right;"></div>
+                        <div id="remaining" style="float: right;">3</div>
                     </div>      
                 </div>
                 </div>	
@@ -53,10 +53,12 @@
 	
 	function begin()
 	{
-		test = true;
-		nb_questions = 3;
-		init();
-		suivant();
+        if(confirm("Voulez-vous commencer le test ?")){
+            test = true;
+		    nb_questions = 3;
+		    init();
+		    next();
+        }
 	}
 	
 	function init()
@@ -66,8 +68,8 @@
     
     function next()
     {
-        var index;
-        var question;
+        var index = 1;
+        var question, response;
 
         if(test == false)
         {
@@ -75,8 +77,14 @@
                 reset();
         }
         
-        question = questions(1);
-        alert(question);
+        question = questions(index);
+        response = responses(index).split('*');
+        document.getElementById("question").innerText = question;
+        document.getElementById("res1").innerText = response[0];
+        document.getElementById("res2").innerText = response[1];
+        document.getElementById("res3").innerText = response[2];
+        document.getElementById("res4").innerText = response[3];
+        document.getElementById("res5").innerText = response[4];
     }
 
     reset()

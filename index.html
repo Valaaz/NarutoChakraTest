@@ -6,8 +6,9 @@
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="icon" type="image/png" href="./images/icone_chakra.png" />
     <title>Test Naruto : quel est la nature de ton chakra ?</title>
+    <script language="Javascript" src="js/questions.js"></script>
 </head>
-<body>
+<body onload="begin()">
     <header>
         <h1>Test Naruto : quel est la nature de ton chakra ?</h1>
     </header>
@@ -17,13 +18,25 @@
         <div class="test_container" id="container" style="width: 800px; display: inline-block;">
             <div class="question" id="question">Question</div>
 
-            <div class="column" id="list">
+            <div class="choice" id="list">
                 <div class="response" id="response1">Réponse 1</div>
                 <div class="response" id="response2">Réponse 2</div>
                 <div class="response" id="response3">Réponse 3</div>
                 <div class="response" id="response4">Réponse 4</div>
                 <div class="response" id="response5">Réponse 5</div>     
             </div>
+
+            <div class="bottom" style="width: 736px; display: inline-block;">
+                    <input type="button" value="Commencer" id="btn_start" style="float: left;"/>
+                    <div style="float: right; padding-left: 10px; padding-right: 10px;">Questions restantes :&nbsp;
+                        <div id="remaining" style="float: right;"></div>
+                    </div>      
+                </div>
+                </div>	
+            </div>
+
+            
+
         </div>
     </div>
 
@@ -33,4 +46,43 @@
         Naruto/Naruto Shippuden - Masashi Kishimoto - SHUEISHA Inc.
     </footer>
 </body>
+
+<script type="text/javascript" language="javascript">
+    var nb_questions = 3;
+	var test = false;
+	
+	function begin()
+	{
+		test = true;
+		nb_questions = 3;
+		init();
+		suivant();
+	}
+	
+	function init()
+	{
+		document.getElementById('remaining').innerText = nb_questions;
+    }
+    
+    function next()
+    {
+        var index;
+        var question;
+
+        if(test == false)
+        {
+            if(confirm("Voulez-vous recommencer le test ?"))
+                reset();
+        }
+        
+        question = questions(1);
+        alert(question);
+    }
+
+    reset()
+    {
+        alert("reset");
+    }
+</script>
+
 </html>

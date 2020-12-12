@@ -29,23 +29,23 @@ function responses(number)
         case 1:
             res1 = "Feu";
             res2 = "Eau";
-            res3 = "Terre";
+            res3 = "Vent";
             res4 = "Foudre";
-            res5 = "Vent";
+            res5 = "Terre";
             break;
         case 2:
-            res1 = "Eau";
-            res2 = "Vent";
-            res3 = "Foudre";
-            res4 = "Feu";
+            res1 = "Feu";
+            res2 = "Eau";
+            res3 = "Vent";
+            res4 = "Foudre";
             res5 = "Terre";
             break;
         case 3:
-            res1 = "Vent";
-            res2 = "Foudre";
-            res3 = "Feu";
-            res4 = "Terre";
-            res5 = "Eau";
+            res1 = "Feu";
+            res2 = "Eau";
+            res3 = "Vent";
+            res4 = "Foudre";
+            res5 = "Terre";
             break;
     }
 

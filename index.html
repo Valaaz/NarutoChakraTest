@@ -16,14 +16,14 @@
     <div style="width: 100%; height: auto; text-align: center;">
 
         <div class="test_container" id="container" style="width: 800px; display: inline-block;">
-            <div class="question" id="question">Question</div>
+            <div class="question" id="question"></div>
 
             <div class="choice" id="list">
-                <div class="response" id="res1">Réponse 1</div>
-                <div class="response" id="res2">Réponse 2</div>
-                <div class="response" id="res3">Réponse 3</div>
-                <div class="response" id="res4">Réponse 4</div>
-                <div class="response" id="res5">Réponse 5</div>     
+                <div class="response" id="res1" onclick="getRes(1)"></div>
+                <div class="response" id="res2" onclick="getRes(2)"></div>
+                <div class="response" id="res3" onclick="getRes(3)"></div>
+                <div class="response" id="res4" onclick="getRes(4)"></div>
+                <div class="response" id="res5" onclick="getRes(5)"></div>     
             </div>
 
             <div class="bottom" style="width: 736px; display: inline-block;">
@@ -49,15 +49,27 @@
 
 <script type="text/javascript" language="javascript">
     var nb_questions = 3;
-	var test = false;
+    var i = 1;
+    var test = false;
+    var fire = 0;
+    var water = 0;
+    var wind = 0;
+    var lightning = 0;
+    var earth = 0;
 	
 	function begin()
 	{
         if(confirm("Voulez-vous commencer le test ?")){
             test = true;
 		    nb_questions = 3;
+            i = 1;
+            fire = 0;
+            water = 0;
+            wind = 0;
+            lightning = 0;
+            earth = 0;
 		    init();
-		    next();
+		    next(i);
         }
 	}
 	
@@ -65,18 +77,55 @@
 	{
 		document.getElementById('remaining').innerText = nb_questions;
     }
-    
-    function next()
+
+    function getRes(res)
     {
-        var index = 1;
+        if(test == false)
+            return;
+
+        switch(res)
+        {
+            case 1:
+                fire += 1;
+                break;
+            case 2:
+                water += 1;
+                break;
+            case 3:
+                wind += 1;
+                break;
+            case 4:
+                lightning += 1;
+                break;
+            case 5:
+                earth += 1;
+                break;
+        }
+
+        nb_questions--;
+        if(nb_questions == 0)
+            test = false;
+
+        init();
+        i++;
+        next(i);
+
+        if(nb_questions == 0)
+            alert("Feu = " + fire + ", Eau = " + water + ", Vent = " + wind + ", Foudre = " + lightning + ", Terre = " + earth);
+        }
+    
+    function next(index)
+    {
         var question, response;
 
+        /*
         if(test == false)
         {
             if(confirm("Voulez-vous recommencer le test ?"))
                 reset();
         }
-        
+        */
+
         question = questions(index);
         response = responses(index).split('*');
         document.getElementById("question").innerText = question;
@@ -90,6 +139,12 @@
     reset()
     {
         alert("reset");
+    }
+
+    result()
+    {
+        result = "Feu = " + fire + ", Eau = " + water + ", Vent = " + wind + ", Foudre = " + lightning + ", Terre = " + earth;
+        alert(result);
     }
 </script>
 

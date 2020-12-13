@@ -4,13 +4,19 @@ function questions(number)
     switch(number)
     {
         case 1:
-            question = "Naruto";
+            question = "Question 1";
             break;
         case 2:
-            question = "Sasuke";
+            question = "Question 2";
             break;
         case 3:
-            question = "Sakura";
+            question = "Question 3";
+            break;
+        case 4:
+            question = "Question 4";
+            break;
+        case 5:
+            question = "Question 5";
             break;
     }
 
@@ -41,6 +47,20 @@ function responses(number)
             res5 = "Terre";
             break;
         case 3:
+            res1 = "Feu";
+            res2 = "Eau";
+            res3 = "Vent";
+            res4 = "Foudre";
+            res5 = "Terre";
+            break;
+        case 4:
+            res1 = "Feu";
+            res2 = "Eau";
+            res3 = "Vent";
+            res4 = "Foudre";
+            res5 = "Terre";
+            break;
+        case 5:
             res1 = "Feu";
             res2 = "Eau";
             res3 = "Vent";

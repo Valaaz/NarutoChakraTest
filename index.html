@@ -35,13 +35,12 @@
                 </div>	
             </div>
 
-            
-
         </div>
     </div>
 
     <div class="saut_ligne" style="height: 30px"></div>
-    <div id="chart_div" style="width:400; height:300"></div>
+    <div id="chart" style="width:600; height:500"></div>
+    <div class="saut_ligne" style="height: 30px"></div>
     
     <footer>
         Naruto/Naruto Shippuden - Masashi Kishimoto - SHUEISHA Inc.
@@ -145,8 +144,8 @@
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-    function chart()
-    {
+    //function chart()
+    //{
         var data;
         var chart;
 
@@ -166,18 +165,29 @@
             data.addColumn('string', 'Topping');
             data.addColumn('number', 'Slices');
             data.addRows([
+            ['Feu', 1],
+              ['Eau', 1],
+              ['Vent', 1],
+              ['Foudre', 1],
+              ['Terre', 1]
+              /*
               ['Feu', fire],
               ['Eau', water],
               ['Vent', wind],
               ['Foudre', lightning],
-              ['Terre', earth]
+              ['Terre', earth]*/
             ]);
 
             // Set chart options
-            var options = {'title':'Type d\'élément', 'width':400, 'height':300};
+            var options = {'title':'Type d\'élément',
+                            'width':600, 
+                            'height':500,
+                            colors: ['#C8160B', '#2416A0', 'grey', '#C6B312', '#7E4A02'],
+                            backgroundColor: "#E14414",
+                            };
 
             // Instantiate and draw our chart, passing in some options.
-            chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+            chart = new google.visualization.PieChart(document.getElementById('chart'));
             google.visualization.events.addListener(chart, 'select', selectHandler);
             chart.draw(data, options);
         }
@@ -187,7 +197,7 @@
             var value = data.getValue(selectedItem.row, 0);
             alert('The user selected ' + value);
       }
-    }
+    //}
 
     </script>
 

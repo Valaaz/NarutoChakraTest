@@ -29,7 +29,7 @@
             <div class="bottom" style="width: 736px; display: inline-block;">
                     <input type="button" value="Commencer" id="btn_start" style="float: left;" onclick="begin()"/>
                     <div style="float: right; padding-left: 10px; padding-right: 10px;">Questions restantes :&nbsp;
-                        <div id="remaining" style="float: right;">3</div>
+                        <div id="remaining" style="float: right;">5</div>
                     </div>      
                 </div>
                 </div>	
@@ -56,7 +56,7 @@
     var wind = 0;
     var lightning = 0;
     var earth = 0;
-	
+
 	function begin()
 	{
         if(confirm("Voulez-vous commencer le test ?")){
@@ -144,8 +144,8 @@
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-    //function chart()
-    //{
+    function chart()
+    {
         var data;
         var chart;
 
@@ -165,17 +165,11 @@
             data.addColumn('string', 'Topping');
             data.addColumn('number', 'Slices');
             data.addRows([
-            ['Feu', 1],
-              ['Eau', 1],
-              ['Vent', 1],
-              ['Foudre', 1],
-              ['Terre', 1]
-              /*
               ['Feu', fire],
               ['Eau', water],
               ['Vent', wind],
               ['Foudre', lightning],
-              ['Terre', earth]*/
+              ['Terre', earth]
             ]);
 
             // Set chart options
@@ -197,7 +191,7 @@
             var value = data.getValue(selectedItem.row, 0);
             alert('The user selected ' + value);
       }
-    //}
+    }
 
     </script>
 

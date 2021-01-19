@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <title>Test Naruto : quel est la nature de ton chakra ?</title>
     <script language="Javascript" src="js/questions.js"></script>
 </head>
+
 <body>
     <header>
         <h1>Test Naruto : quel est la nature de ton chakra ?</h1>
@@ -23,32 +25,32 @@
                 <div class="response" id="res2" onclick="getRes(2)"></div>
                 <div class="response" id="res3" onclick="getRes(3)"></div>
                 <div class="response" id="res4" onclick="getRes(4)"></div>
-                <div class="response" id="res5" onclick="getRes(5)"></div>     
+                <div class="response" id="res5" onclick="getRes(5)"></div>
             </div>
 
             <div class="bottom" style="width: 736px; display: inline-block;">
-                    <input type="button" value="Commencer" id="btn_start" style="float: left;" onclick="begin()"/>
-                    <div style="float: right; padding-left: 10px; padding-right: 10px;">Questions restantes :&nbsp;
-                        <div id="remaining" style="float: right;">5</div>
-                    </div>      
+                <input type="button" value="Commencer" id="btn_start" style="float: left;" onclick="begin()" />
+                <div style="float: right; padding-left: 10px; padding-right: 10px;">Questions restantes :&nbsp;
+                    <div id="remaining" style="float: right;">10</div>
                 </div>
-                </div>	
             </div>
-
         </div>
+    </div>
+
+    </div>
     </div>
 
     <div class="saut_ligne" style="height: 30px"></div>
     <div id="chart" style="width:600; height:500"></div>
     <div class="saut_ligne" style="height: 30px"></div>
-    
+
     <footer>
         Naruto/Naruto Shippuden - Masashi Kishimoto - SHUEISHA Inc.
     </footer>
 </body>
 
 <script type="text/javascript" language="javascript">
-    var nb_questions = 3;
+    var nb_questions = 10;
     var i = 1;
     var test = false;
     var fire = 0;
@@ -57,34 +59,30 @@
     var lightning = 0;
     var earth = 0;
 
-	function begin()
-	{
-        if(confirm("Voulez-vous commencer le test ?")){
+    function begin() {
+        if (confirm("Voulez-vous commencer le test ?")) {
             test = true;
-		    nb_questions = 5;
+            nb_questions = 10;
             i = 1;
             fire = 0;
             water = 0;
             wind = 0;
             lightning = 0;
             earth = 0;
-		    init();
-		    next(i);
+            init();
+            next(i);
         }
-	}
-	
-	function init()
-	{
-		document.getElementById('remaining').innerText = nb_questions;
     }
 
-    function getRes(res)
-    {
-        if(test == false)
+    function init() {
+        document.getElementById('remaining').innerText = nb_questions;
+    }
+
+    function getRes(res) {
+        if (test == false)
             return;
 
-        switch(res)
-        {
+        switch (res) {
             case 1:
                 fire += 1;
                 break;
@@ -103,19 +101,18 @@
         }
 
         nb_questions--;
-        if(nb_questions == 0)
+        if (nb_questions == 0)
             test = false;
 
         init();
         i++;
         next(i);
 
-        if(nb_questions == 0)
+        if (nb_questions == 0)
             chart();
-        }
-    
-    function next(index)
-    {
+    }
+
+    function next(index) {
         var question, response;
 
         /*
@@ -136,21 +133,19 @@
         document.getElementById("res5").innerText = response[4];
     }
 
-    function reset()
-    {
+    function reset() {
         alert("reset");
     }
 </script>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-    function chart()
-    {
+<script type="text/javascript">
+    function chart() {
         var data;
         var chart;
 
         // Load the Visualization API and the piechart package.
-        google.charts.load('current', {'packages':['corechart']});
+        google.charts.load('current', { 'packages': ['corechart'] });
 
         // Set a callback to run when the Google Visualization API is loaded.
         google.charts.setOnLoadCallback(drawChart);
@@ -165,20 +160,21 @@
             data.addColumn('string', 'Topping');
             data.addColumn('number', 'Slices');
             data.addRows([
-              ['Feu', fire],
-              ['Eau', water],
-              ['Vent', wind],
-              ['Foudre', lightning],
-              ['Terre', earth]
+                ['Feu', fire],
+                ['Eau', water],
+                ['Vent', wind],
+                ['Foudre', lightning],
+                ['Terre', earth]
             ]);
 
             // Set chart options
-            var options = {'title':'Type d\'élément',
-                            'width':600, 
-                            'height':500,
-                            colors: ['#C8160B', '#2416A0', 'grey', '#C6B312', '#7E4A02'],
-                            backgroundColor: "#E14414",
-                            };
+            var options = {
+                'title': 'Type d\'élément',
+                'width': 600,
+                'height': 500,
+                colors: ['#C8160B', '#2416A0', 'grey', '#C6B312', '#7E4A02'],
+                backgroundColor: "#E14414",
+            };
 
             // Instantiate and draw our chart, passing in some options.
             chart = new google.visualization.PieChart(document.getElementById('chart'));
@@ -190,9 +186,9 @@
             var selectedItem = chart.getSelection()[0];
             var value = data.getValue(selectedItem.row, 0);
             alert('The user selected ' + value);
-      }
+        }
     }
 
-    </script>
+</script>
 
 </html>

@@ -6,7 +6,7 @@ html {
 header {
     text-align: center;
     background-color: var(--orange);
-    width: 45%;
+    width: 50%;
     display : block;
     margin : auto;
     margin-top: 15px;
@@ -49,13 +49,15 @@ footer {
     border: 2px solid #69200A;
     background-color: var(--orange);
     width: 90%;
-    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .question {
     border: 2px solid #69200A;
     background-color: var(--orange-light);
     margin: 20px;
+    margin-bottom: 0;
     padding: 10px;
     height: auto;
 }
@@ -64,30 +66,29 @@ footer {
 	width: 100%;
 	height: auto;
     text-align: center;
-    float: left;
     padding-top: 16px;
 	padding-bottom: 10px;
 	margin-bottom: 10px;
-    margin-left: 20px;
+}
+
+.response {
+    width: 35%;
+    min-height: 50px;
+    height : auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 2px solid #69200A;
+    background-color: #EB8C6F;
 }
 
 .response:hover {
     box-shadow: 10px 5px 5px #69200A;
 	filter: brightness(110%);
-}
-
-.response {
-    width: 35%;
-	margin: 30px;
-    padding-top: 25px;
-    padding-left: 10px;
-    padding-right: 10px;
-    min-height: 50px;
-    height : auto;
-    text-align: center;
-    float: left;
-    border: 2px solid #69200A;
-    background-color: #EB8C6F;
 }
 
 .bottom {
@@ -97,14 +98,5 @@ footer {
     margin-top: 0;
     padding: 10px;
     height: auto;
-    width: 90%;
     display: inline-block;
-}
-
-#res5 {
-    margin-left: 27%;
-}
-
-#chart {
-    margin-left: 28%;
 }

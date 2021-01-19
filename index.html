@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" media="screen and (min-width:769px)" href="./css/index.css" />
+    <link rel="stylesheet" media="screen and (max-width:768px)" href="./css/mobile.css" />
     <link rel="icon" type="image/png" href="./images/icone_chakra.png" />
     <title>Test Naruto : quel est la nature de ton chakra ?</title>
     <script language="Javascript" src="js/questions.js"></script>
@@ -17,7 +18,7 @@
 
     <div style="width: 100%; height: auto; text-align: center;">
 
-        <div class="test_container" id="container" style="width: 800px; display: inline-block;">
+        <div class="test_container" id="container">
             <div class="question" id="question"></div>
 
             <div class="choice" id="list">
@@ -28,7 +29,7 @@
                 <div class="response" id="res5" onclick="getRes(5)"></div>
             </div>
 
-            <div class="bottom" style="width: 736px; display: inline-block;">
+            <div class="bottom">
                 <input type="button" value="Commencer" id="btn_start" style="float: left;" onclick="begin()" />
                 <div style="float: right; padding-left: 10px; padding-right: 10px;">Questions restantes :&nbsp;
                     <div id="remaining" style="float: right;">10</div>
@@ -41,7 +42,7 @@
     </div>
 
     <div class="saut_ligne" style="height: 30px"></div>
-    <div id="chart" style="width:600; height:500"></div>
+    <div id="chart" style="width:auto; height:auto"></div>
     <div class="saut_ligne" style="height: 30px"></div>
 
     <footer>

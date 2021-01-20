@@ -92,6 +92,7 @@ footer {
     float: left;
     border: 2px solid #69200A;
     background-color: #EB8C6F;
+    word-wrap: break-word;
 }
 
 .bottom {
@@ -109,10 +110,6 @@ footer {
     margin-left: 27%;
 }
 
-#chart {
-    margin-left: 28%;
-}
-
 #btn_start {
     background-color: #EB8C6F;
     border: 1px solid var(--red);
@@ -120,4 +117,12 @@ footer {
 
 #btn_start:hover {
     filter: brightness(110%);
+}
+
+#chart {
+    width: 40%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
 }
